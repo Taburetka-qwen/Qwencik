@@ -320,11 +320,11 @@ function initCategoryFilters() {
  * @param {number} productId - Product ID
  */
 function openProductModal(productId) {
-    const product = getProductById(productId);
+    const product = window.ProductsModule.getProductById(productId);
     if (!product) return;
     
     const { formatPrice, generateStars, categoryNames } = window.ProductsModule;
-    const isFav = isFavorite(product.id);
+    const isFav = window.CartModule.isFavorite(product.id);
     
     modalContent.innerHTML = `
         <div class="modal-product">
