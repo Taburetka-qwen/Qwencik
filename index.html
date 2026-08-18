@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Современный интернет-магазин электроники - лучшие товары по лучшим ценам">
+    <title>TechStore - Современный магазин электроники</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">TechStore</div>
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">TechStore</a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link">Главная</a></li>
+                    <li><a href="#categories" class="nav-link">Категории</a></li>
+                    <li><a href="#products" class="nav-link">Товары</a></li>
+                    <li><a href="#brands" class="nav-link">Бренды</a></li>
+                    <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+                    <li><a href="#contact" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+
+                <!-- Search -->
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Поиск товаров...">
+                    <button class="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Favorites -->
+                <button class="header-icon" id="favoritesBtn" aria-label="Избранное">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <span class="icon-badge" id="favoritesCount">0</span>
+                </button>
+
+                <!-- Cart -->
+                <button class="header-icon" id="cartBtn" aria-label="Корзина">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
+                    <span class="icon-badge" id="cartCount">0</span>
+                </button>
+
+                <!-- Account -->
+                <button class="header-icon account-btn" id="accountBtn" aria-label="Аккаунт">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </button>
+
+                <!-- Burger Menu -->
+                <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge fade-in">Новая коллекция 2025</span>
+                    <h1 class="hero-title fade-in">Инновационные технологии для вашего комфорта</h1>
+                    <p class="hero-subtitle fade-in">Откройте для себя новейшие гаджеты и электронику от ведущих мировых брендов с гарантией качества</p>
+                    <div class="hero-buttons fade-in">
+                        <a href="#products" class="btn btn-primary">Купить сейчас</a>
+                        <a href="#categories" class="btn btn-secondary">Смотреть каталог</a>
+                    </div>
+                    
+                    <!-- Promo Timer -->
+                    <div class="promo-timer fade-in">
+                        <p class="promo-text">До конца акции осталось:</p>
+                        <div class="timer" id="promoTimer">
+                            <div class="timer-item">
+                                <span class="timer-value" id="days">00</span>
+                                <span class="timer-label">дней</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="hours">00</span>
+                                <span class="timer-label">часов</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="minutes">00</span>
+                                <span class="timer-label">минут</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="seconds">00</span>
+                                <span class="timer-label">секунд</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <div class="hero-image-wrapper">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23grad1)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='white' opacity='0.2'/%3E%3Crect x='120' y='240' width='160' height='100' rx='10' fill='white' opacity='0.3'/%3E%3C/svg%3E" alt="Hero Product" class="hero-img" loading="lazy">
+                        <div class="floating-badge badge-sale">-30%</div>
+                        <div class="floating-badge badge-new">NEW</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories" id="categories">
+            <div class="container">
+                <h2 class="section-title">Категории товаров</h2>
+                <p class="section-subtitle">Выберите категорию для просмотра товаров</p>
+                
+                <div class="categories-grid">
+                    <div class="category-card" data-category="laptops">
+                        <div class="category-icon">💻</div>
+                        <h3>Ноутбуки</h3>
+                        <p>Мощные и портативные</p>
+                    </div>
+                    <div class="category-card" data-category="smartphones">
+                        <div class="category-icon">📱</div>
+                        <h3>Смартфоны</h3>
+                        <p>Всегда на связи</p>
+                    </div>
+                    <div class="category-card" data-category="monitors">
+                        <div class="category-icon">🖥️</div>
+                        <h3>Мониторы</h3>
+                        <p>Яркие дисплеи</p>
+                    </div>
+                    <div class="category-card" data-category="gaming">
+                        <div class="category-icon">🎮</div>
+                        <h3>Игровые аксессуары</h3>
+                        <p>Для геймеров</p>
+                    </div>
+                    <div class="category-card" data-category="headphones">
+                        <div class="category-icon">🎧</div>
+                        <h3>Наушники</h3>
+                        <p>Кристальный звук</p>
+                    </div>
+                    <div class="category-card" data-category="components">
+                        <div class="category-icon">⚙️</div>
+                        <h3>Комплектующие</h3>
+                        <p>Для апгрейда</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <div class="container">
+                <div class="products-header">
+                    <div>
+                        <h2 class="section-title">Все товары</h2>
+                        <p class="section-subtitle">Широкий выбор электроники для любых задач</p>
+                    </div>
+                    
+                    <!-- Sort Dropdown -->
+                    <div class="sort-container">
+                        <label for="sortSelect">Сортировка:</label>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-low">Цена: по возрастанию</option>
+                            <option value="price-high">Цена: по убыванию</option>
+                            <option value="rating">По рейтингу</option>
+                            <option value="name">По названию</option>
+                            <option value="newest">Новинки</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-container">
+                    <!-- Filters Sidebar -->
+                    <aside class="filters-sidebar" id="filtersSidebar">
+                        <div class="filters-header">
+                            <h3>Фильтры</h3>
+                            <button class="reset-filters" id="resetFilters">Сбросить</button>
+                        </div>
+
+                        <!-- Price Filter -->
+                        <div class="filter-group">
+                            <h4>Цена</h4>
+                            <div class="price-range">
+                                <input type="number" id="minPrice" placeholder="От" min="0">
+                                <span>-</span>
+                                <input type="number" id="maxPrice" placeholder="До" min="0">
+                            </div>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="filter-group">
+                            <h4>Категория</h4>
+                            <div class="checkbox-group" id="categoryFilters">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="laptops"> Ноутбуки
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="smartphones"> Смартфоны
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="monitors"> Мониторы
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="gaming"> Игровые аксессуары
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="headphones"> Наушники
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="components"> Комплектующие
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Brand Filter -->
+                        <div class="filter-group">
+                            <h4>Производитель</h4>
+                            <div class="checkbox-group" id="brandFilters">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Apple"> Apple
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Samsung"> Samsung
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Sony"> Sony
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="ASUS"> ASUS
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Xiaomi"> Xiaomi
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="LG"> LG
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Rating Filter -->
+                        <div class="filter-group">
+                            <h4>Рейтинг</h4>
+                            <div class="rating-filter" id="ratingFilter">
+                                <label class="radio-label">
+                                    <input type="radio" name="rating" value="0" checked> Все
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="rating" value="4"> 4+ ★
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="rating" value="4.5"> 4.5+ ★
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Availability Filter -->
+                        <div class="filter-group">
+                            <h4>Наличие</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="inStockOnly"> Только в наличии
+                            </label>
+                        </div>
+                    </aside>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded dynamically via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bestsellers Section -->
+        <section class="bestsellers">
+            <div class="container">
+                <h2 class="section-title">Хиты продаж</h2>
+                <p class="section-subtitle">Самые популярные товары этого месяца</p>
+                
+                <div class="products-grid" id="bestsellersGrid">
+                    <!-- Bestsellers will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="new-arrivals">
+            <div class="container">
+                <h2 class="section-title">Новинки</h2>
+                <p class="section-subtitle">Последние поступления в нашем магазине</p>
+                
+                <div class="products-grid" id="newArrivalsGrid">
+                    <!-- New arrivals will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚚</div>
+                        <h3>Быстрая доставка</h3>
+                        <p>Бесплатная доставка при заказе от 5000₽</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Безопасная оплата</h3>
+                        <p>Защищённые платежи и шифрование данных</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💳</div>
+                        <h3>Возврат товара</h3>
+                        <p>30 дней на возврат без лишних вопросов</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⭐</div>
+                        <h3>Гарантия качества</h3>
+                        <p>Официальная гарантия на все товары</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands" id="brands">
+            <div class="container">
+                <h2 class="section-title">Популярные бренды</h2>
+                <p class="section-subtitle">Мы работаем только с проверенными производителями</p>
+                
+                <div class="brands-grid">
+                    <div class="brand-card">Apple</div>
+                    <div class="brand-card">Samsung</div>
+                    <div class="brand-card">Sony</div>
+                    <div class="brand-card">ASUS</div>
+                    <div class="brand-card">Xiaomi</div>
+                    <div class="brand-card">LG</div>
+                    <div class="brand-card">Dell</div>
+                    <div class="brand-card">HP</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews" id="reviews">
+            <div class="container">
+                <h2 class="section-title">Отзывы покупателей</h2>
+                <p class="section-subtitle">Что говорят наши клиенты о нас</p>
+                
+                <div class="reviews-grid" id="reviewsGrid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">А</div>
+                            <div class="review-info">
+                                <h4>Александр Петров</h4>
+                                <div class="review-rating">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">Отличный магазин! Быстрая доставка, качественный товар. Заказывал ноутбук - всё пришло в целости и сохранности. Рекомендую!</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">М</div>
+                            <div class="review-info">
+                                <h4>Мария Иванова</h4>
+                                <div class="review-rating">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">Покупала здесь смартфон для сына. Очень довольна обслуживанием и ценами. Буду заказывать ещё!</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">Д</div>
+                            <div class="review-info">
+                                <h4>Дмитрий Сидоров</h4>
+                                <div class="review-rating">★★★★☆</div>
+                            </div>
+                        </div>
+                        <p class="review-text">Хороший ассортимент и приятные цены. Доставка заняла чуть больше времени, чем ожидал, но товар того стоил.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Подпишитесь на новости</h2>
+                    <p>Получайте информацию о новых поступлениях и специальных предложениях</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Ваш email" required>
+                        <button type="submit" class="btn btn-primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>TechStore</h3>
+                    <p>Современный магазин электроники с лучшими ценами и гарантией качества</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Карьера</a></li>
+                        <li><a href="#">Пресс-центр</a></li>
+                        <li><a href="#">Блог</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Публичная оферта</a></li>
+                        <li><a href="#">Политика cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>📍 Москва, ул. Примерная, 123</li>
+                        <li>📞 +7 (999) 123-45-67</li>
+                        <li>✉️ info@techstore.ru</li>
+                        <li>🕐 Пн-Вс: 9:00 - 21:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechStore. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Корзина</h3>
+            <button class="close-cart" id="closeCart" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-empty" id="cartEmpty">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <p>Корзина пуста</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="cartTotal">0 ₽</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkoutBtn">Оформить заказ</button>
+            <button class="btn btn-secondary btn-block" id="clearCartBtn">Очистить корзину</button>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="product-modal" id="productModal">
+        <button class="close-modal" id="closeModal" aria-label="Закрыть">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="modal-content" id="modalContent">
+            <!-- Modal content will be loaded dynamically -->
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- JavaScript Files -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
